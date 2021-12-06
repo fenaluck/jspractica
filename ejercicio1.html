@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <div>
+        <div style="width: 40%;margin: 0 auto">
+            <h2>
+                Escríbenos !!!
+            </h2>
+            <div class="resultado" style="color:green;font-style: italic">
+            </div>
+            <form id="formulario">
+                <div>
+                    <div style="display: flex;flex-direction: column;">
+                        <label>
+                            Nombre completo
+                        </label>
+                        <input id="nombre" type="text">
+                        <p class="errorNombre" style="color:red;font-style: italic;"></p>
+                    </div>
+                    <div style="display: flex;flex-direction: column;">
+                        <label>
+                            Asunto
+                        </label>
+                        <input id="asunto" type="text">
+                        <p class="errorAsunto" style="color:red;font-style: italic;"></p>
+                    </div>
+                </div>
+                <div style="display: flex;flex-direction: column;">
+                    <label>
+                        Mensaje
+                    </label>
+                    <textarea id="mensaje"></textarea>
+                    <p class="errorMensaje" style="color:red;font-style: italic;"></p>
+                </div>
+                <div>
+                    <button id="botton" type="submit">
+                        Envíar mensaje
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        /* primero obtengo los valores y los guardo en variables */
+        const form = document.querySelector('#formulario');
+        const nombre = document.querySelector('#nombre');
+        const asunto = document.querySelector('#asunto');
+        const mensaje = document.querySelector('#mensaje');
+        const errorn = document.querySelector('.errorNombre');
+        const errora = document.querySelector('.errorAsunto');
+        const errorm = document.querySelector('.errorMensaje');
+        const resul = document.querySelector('.resultado');
+
+        /*reacciono al envio de datos del formulario */
+
+        form.addEventListener('submit', function(ev){
+            ev.preventDefault();
+        
+            // se captura el nombre asunto y mensaje
+            const nombref = nombre.value;
+            const asuntof = asunto.value;
+            const mensajef = mensaje.value;
+            const enombre = errorn.value;
+            const easunto = errora.value;
+            const emensaje = errorm.value;
+            const resultado = resul.value;
+
+            function isValid(word){
+                return word.match(/^[a-zA-Z0-9 ]+$/) != null 
+            }   
+        
+        
+
+            if(isValid(nombref) === false){
+                errorn.innerHTML = `hay un error en la escritura del nombre`;
+
+            }
+            if(isValid(asuntof) === false){
+                errora.innerHTML = `hay un error en la escritura del asunto`;
+            }
+            if(isValid(mensajef) === false){
+                errorm.innerHTML = `hay un error en la escritura del mensaje`;
+            }
+            
+            resul.innerHTML = `resultado enviado con exito chiquillo`  
+            resul.style.color =  'blue'        
+            resul.size = '4rem'
+        })
+    </script><!--
+    
+    -->
+</body>
+
+</html>

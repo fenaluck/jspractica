@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h2>
+                Resultado: <span class="resultado"></span>
+            </h2>
+            <div>
+                <div>
+                    <div>
+                        <label for="">Valor 1</label>
+                        <input id="valor1" type="text">
+                    </div>
+                    <div>
+                        <label for="">Valor 2</label>
+                        <input id="valor2" type="text">
+                    </div>
+                    <div style="display: flex">
+                        <button id="btn-sumar" type="button">
+                            Sumar
+                        </button>
+                        <button id="btn-restar" type="button">
+                            Restar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const valor_a = document.querySelector('#valor1');
+        const valor_b= document.querySelector('#valor2');
+        const btnsumar = document.querySelector('#btn-sumar');
+        const btnrestar = document.querySelector('#btn-restar');
+        const resultado = document.querySelector('.resultado');
+
+        btnsumar.addEventListener('click', function (){
+            const primero = valor_a.value;
+            const segundo = valor_b.value;
+            const suma = parseInt(primero) + parseInt(segundo)
+
+
+            resultado.innerHTML= suma
+            
+        })
+
+        btnrestar.addEventListener('click', function(){
+            const tercero = valor_a.value;
+            const cuarto = valor_b.value;
+            const resta = parseInt(tercero) - parseInt (cuarto)
+        
+            if(resta <= 0){
+            resultado.innerHTML = 0;
+                }
+            else (resultado.innerHTML = resta) 
+                
+            
+            
+            
+        })
+        
+
+    </script>
+</body>
+
+</html>
